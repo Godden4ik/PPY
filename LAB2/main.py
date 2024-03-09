@@ -210,6 +210,7 @@ input_numbers = input("Enter a series of space-separated integers: ")
 # Convert Input
 numbers_list = list(map(int, input_numbers.split()))
 numbers_tuple = tuple(numbers_list)
+numbers_set = set(numbers_list)
 numbers_dict = {x: x**2 for x in numbers_list}
 
 # Manipulate List
@@ -225,99 +226,35 @@ except AttributeError:
     print("Tuples are immutable and cannot be modified.")
 
 # Set Operations
-input_set = set(numbers_list)
 additional_set = {10, 11, 12}
-set_union = input_set.union(additional_set)
-set_intersection = input_set.intersection(additional_set)
-set_difference = input_set.difference(additional_set)
+set_union = numbers_set.union(additional_set)
+set_intersection = numbers_set.intersection(additional_set)
+set_difference = numbers_set.difference(additional_set)
 
 # Dictionary Operations
-
 print("Original Dictionary:", numbers_dict)
 # Add a new key-value pair
-numbers_dict[11] = 121
-# Delete an existing key-value pair if present
+numbers_dict[10] = 100
+# Delete an existing key-value pair
 if 8 in numbers_dict:
     del numbers_dict[8]
 
-# Print Output
-print("Modified list:", numbers_list)
-print("Tuple remains unchanged:", numbers_tuple)
-print("Union of set:", set_union)
-print("Intersection of set:", set_intersection)
-print("Difference of set:", set_difference)
-print("Updated Dictionary:", numbers_dict)
-
-"""7. **Built-in Types and Type Conversion**
-
-  Extend the previous Python program to demonstrate the use of built-in types and type conversion. Perform the following operations:
-
-  a. ...
-
-  b. ...
-
-  c. ...
-
-  d. ...
-
-  e. ...
-
-  f. ...
-
-  g. Type Conversion: Convert the list to a tuple, set, and dictionary. Convert the tuple to a list, set, and dictionary. Convert the set to a list, tuple, and dictionary. Convert the dictionary to a list, tuple, and set.
-
-  h. Print Output: Print the results of the type conversion operations.
-
-  example:
-  ```
-  Enter a series of space-separated integers: 5 2 8 1 9
-
-  Tuples are immutable and cannot be modified.
-  Original Dictionary: {5: 25, 2: 4, 8: 64, 1: 1, 9: 81}
-  List to Tuple: (5, 2, 20, 1, 9, 10)
-  List to Set: {1, 2, 5, 9, 10, 20}
-  List to Dictionary: {5: 25, 2: 4, 20: 400, 1: 1, 9: 81, 10: 100}
-  Tuple to List: [5, 2, 8, 1, 9]
-  Tuple to Set: {1, 2, 5, 8, 9}
-  Tuple to Dictionary: {5: 25, 2: 4, 8: 64, 1: 1, 9: 81}
-  Set to List: [1, 2, 5, 9, 10, 20]
-  Set to Tuple: (1, 2, 5, 9, 10, 20)
-  Set to Dictionary: {1: 1, 2: 4, 5: 25, 9: 81, 10: 100, 20: 400}
-  Dictionary to List: [5, 2, 20, 1, 9, 10, 11]
-  Dictionary to Tuple: (5, 2, 20, 1, 9, 10, 11)
-  Dictionary to Set: {1, 2, 5, 9, 10, 11, 20}
-```
-"""
-
-# Input
-input_numbers = input("Enter a series of space-separated integers: ")
-
-# Convert Input
-
-# Manipulate List
-
-# Attempt to Modify Tuple (this will raise an error)
-
-# Set Operations
-
-# Dictionary Operations
-print("Original Dictionary:", numbers_dict)
-# Add a new key-value pair
-# Delete an existing key-value pair
-
 # Type Conversion
-# list_to_tuple =
-# list_to_set =
-# list_to_dict =
-# tuple_to_list =
-# tuple_to_set =
-# tuple_to_dict =
-# set_to_list =
-# set_to_tuple =
-# set_to_dict =
-# dict_to_list =
-# dict_to_tuple =
-# dict_to_set =
+list_to_tuple = tuple(numbers_list)
+list_to_set = set(numbers_list)
+list_to_dict = {i: i**2 for i in numbers_list}
+
+tuple_to_list = list(numbers_tuple)
+tuple_to_set = set(numbers_tuple)
+tuple_to_dict = {i: i**2 for i in numbers_tuple}
+
+set_to_list = list(numbers_set)
+set_to_tuple = tuple(numbers_set)
+set_to_dict = {i: i**2 for i in numbers_set}
+
+dict_to_list = list(numbers_dict.keys())
+dict_to_tuple = tuple(numbers_dict.keys())
+dict_to_set = set(numbers_dict.keys())
 
 # Print Output
 print("List to Tuple:", list_to_tuple)

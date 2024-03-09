@@ -27,6 +27,9 @@ Write a Python program that takes input from the user to create a list of intege
   ```
 """
 
+import ast
+import math
+
 # Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
@@ -38,7 +41,6 @@ numbers_list.sort()
 
 # Print Output
 print("Sorted list:", numbers_list)
-
 
 """-----------------------------------------------------------------------------
 
@@ -107,15 +109,12 @@ Extend the previous Python program to demonstrate the manipulation of lists usin
   ```
 """
 
-
-
 # Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
 # Convert Input
 numbers_list = list(map(int, input_numbers.split()))
 numbers_tuple = tuple(numbers_list)
-
 
 # Manipulate List
 #   Append 10 to the list
@@ -135,7 +134,7 @@ except AttributeError:
 try:
     #   Insert 20 at index 2
     numbers_tuple.insert(2, 20)
-    
+
 
 except AttributeError:
     pass  # Insert operation will also raise an error
@@ -211,7 +210,7 @@ input_numbers = input("Enter a series of space-separated integers: ")
 numbers_list = list(map(int, input_numbers.split()))
 numbers_tuple = tuple(numbers_list)
 numbers_set = set(numbers_list)
-numbers_dict = {x: x**2 for x in numbers_list}
+numbers_dict = {x: x ** 2 for x in numbers_list}
 
 # Manipulate List
 numbers_list.append(10)
@@ -242,15 +241,15 @@ if 8 in numbers_dict:
 # Type Conversion
 list_to_tuple = tuple(numbers_list)
 list_to_set = set(numbers_list)
-list_to_dict = {i: i**2 for i in numbers_list}
+list_to_dict = {i: i ** 2 for i in numbers_list}
 
 tuple_to_list = list(numbers_tuple)
 tuple_to_set = set(numbers_tuple)
-tuple_to_dict = {i: i**2 for i in numbers_tuple}
+tuple_to_dict = {i: i ** 2 for i in numbers_tuple}
 
 set_to_list = list(numbers_set)
 set_to_tuple = tuple(numbers_set)
-set_to_dict = {i: i**2 for i in numbers_set}
+set_to_dict = {i: i ** 2 for i in numbers_set}
 
 dict_to_list = list(numbers_dict.keys())
 dict_to_tuple = tuple(numbers_dict.keys())
@@ -453,7 +452,102 @@ These are fundamental constructs in Python programming that enable you to contro
 """
 
 
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num <= 3:
+        return True
+    if num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+
+try:
+    with open('output1.txt', 'r') as file:
+        largest_integer = max(map(int, file.read().split()))
+except FileNotFoundError:
+    print("File 'output1.txt' not found.")
+    exit()
+
+primes = [num for num in range(2, largest_integer + 1) if is_prime(num)]
+
+if primes:
+    prime_sum = sum(primes)
+    largest_prime = max(primes)
+    smallest_prime = min(primes)
+
+    with open('prime_numbers.txt', 'w') as file:
+        file.write("List of prime numbers:\n")
+        file.write(', '.join(map(str, primes)) + '\n')
+        file.write(f"Sum of prime numbers: {prime_sum}\n")
+        file.write(f"Largest prime number: {largest_prime}\n")
+        file.write(f"Smallest prime number: {smallest_prime}\n")
+
+    print("List of prime numbers:", primes)
+    print("Sum of prime numbers:", prime_sum)
+    print("Largest prime number:", largest_prime)
+    print("Smallest prime number:", smallest_prime)
+
+    if is_prime(largest_integer):
+        print(f"The largest integer ({largest_integer}) itself is a prime number.")
+    else:
+        print(f"The largest integer ({largest_integer}) itself is not a prime number.")
+else:
+    print("No prime numbers found up to the largest integer.")
 
 """10.
 In the final main.py file, leave the results from task 8 and 9, commit and push
+"""
+
+""" Task 9:
+Enter a series of space-separated integers: 1 2 3
+Tuples are immutable and cannot be modified.
+Original Dictionary: {1: 1, 2: 4, 3: 9}
+Enter your student number: 123123
+Content of the file:
+Original List: [1, 2, 3]
+Original Tuple: (1, 2, 3)
+Original Set: {1, 2, 3}
+Original Dictionary: {1: 1, 2: 4, 3: 9}
+
+Student Number: 123123
+
+Manipulated List: [1, 2, 20, 3, 10]
+Manipulated Tuple: (1, 2, 3)
+Union of Set: {1, 2, 3, 10, 11, 12}
+Intersection of Set: set()
+Difference of Set: {1, 2, 3}
+Updated Dictionary: {1: 1, 2: 4, 3: 9, 10: 100}
+
+List to Tuple: (1, 2, 20, 3, 10)
+List to Set: {1, 2, 3, 10, 20}
+List to Dictionary: {1: 1, 2: 4, 20: 400, 3: 9, 10: 100}
+Tuple to List: [1, 2, 3]
+Tuple to Set: {1, 2, 3}
+Tuple to Dictionary: {1: 1, 2: 4, 3: 9}
+Set to List: [1, 2, 3]
+Set to Tuple: (1, 2, 3)
+Set to Dictionary: {1: 1, 2: 4, 3: 9}
+Dictionary to List: [1, 2, 3, 10]
+Dictionary to Tuple: (1, 2, 3, 10)
+Dictionary to Set: {10, 1, 2, 3}
+
+Number of lines in the file: 26
+Number of integers in the file: 136
+"""
+
+""" Task 10
+output1.txt contents: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+List of prime numbers: [2, 3, 5, 7, 11, 13, 17, 19]
+Sum of prime numbers: 77
+Largest prime number: 19
+Smallest prime number: 2
+The largest integer (20) itself is not a prime number.
+
 """

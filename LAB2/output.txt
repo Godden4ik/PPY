@@ -1,0 +1,27 @@
+Original List: [1]
+Original Tuple: (1,)
+Original Set: {1}
+Original Dictionary: {1: 1}
+
+Student Number: 1
+
+Manipulated List: [1, 10, 20]
+Manipulated Tuple: (1,)
+Union of Set: {1, 10, 11, 12}
+Intersection of Set: set()
+Difference of Set: {1}
+Updated Dictionary: {1: 1, 10: 100}
+
+List to Tuple: (1, 10, 20)
+List to Set: {1, 10, 20}
+List to Dictionary: {1: 1, 10: 100, 20: 400}
+Tuple to List: [1]
+Tuple to Set: {1}
+Tuple to Dictionary: {1: 1}
+Set to List: [1]
+Set to Tuple: (1,)
+Set to Dictionary: {1: 1}
+Dictionary to List: [1, 10]
+Dictionary to Tuple: (1, 10)
+Dictionary to Set: {1, 10}
+
